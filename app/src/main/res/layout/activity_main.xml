@@ -11,15 +11,13 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="288dp"
         android:text="Kare Karo"
         android:textColor="#00ff90"
         android:textSize="50dp"
-        app:layout_constraintBottom_toTopOf="@+id/img1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.625" />
-
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
         android:id="@+id/img1"
@@ -45,6 +43,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/img1" />
 
+
     <TextView
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
@@ -54,10 +53,9 @@
         android:textColor="#75000000"
         android:textSize="15dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.084"
+        app:layout_constraintHorizontal_bias="0.132"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
-
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/box1"
@@ -73,6 +71,7 @@
         android:layout_marginTop="8dp">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/mobilenumber"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Mobile Number"

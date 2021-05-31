@@ -1,8 +1,10 @@
-package com.myapp.karekaro;
+package com.myapp.karekaro.activities;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.myapp.karekaro.R;
 
 public class Next extends AppCompatActivity {
 

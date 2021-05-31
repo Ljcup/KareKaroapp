@@ -2,18 +2,21 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.myapp.karekaro">
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
+        android:usesCleartextTraffic="true"
         android:theme="@style/Theme.KareKaro">
-        <activity android:name=".Next"></activity>
-        <activity android:name=".Verify_OTP"
-            android:parentActivityName=".MainActivity"
+        <activity android:name=".activities.Next"></activity>
+        <activity android:name=".activities.Verify_otp"
+            android:parentActivityName=".activities.Send_otp"
             />
-        <activity android:name=".MainActivity">
+        <activity android:name=".activities.Send_otp">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

@@ -135,7 +135,7 @@ public class Verify_otp extends AppCompatActivity {
                         startActivity(intent);
                         finish();
                     } else {
-                        Toast.makeText(Verify_otp.this, task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                        Toast.makeText(Verify_otp.this, Objects.requireNonNull(task.getException()).getMessage(), Toast.LENGTH_SHORT).show();
                     }
                 });
     }

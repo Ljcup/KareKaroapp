@@ -74,7 +74,7 @@ public class Verify_otp extends AppCompatActivity {
 
             @Override
             public void onVerificationFailed(@NonNull FirebaseException e) {
-                Toast.makeText(Verify_otp.this, "Verification Failed"+e.getMessage(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(Verify_otp.this, "Verification Failed" + e.getMessage(), Toast.LENGTH_SHORT).show();
             }
 
             @Override
@@ -105,17 +105,17 @@ public class Verify_otp extends AppCompatActivity {
         });
     }
 
-    private void autoOTP(String code) {
-        inotp1.setText(code.charAt(0));
-        inotp2.setText(code.charAt(1));
-        inotp3.setText(code.charAt(2));
-        inotp4.setText(code.charAt(3));
-        inotp5.setText(code.charAt(4));
-        inotp6.setText(code.charAt(5));
-    }
+//    private void autoOTP(String code) {
+//        inotp1.setText(code.charAt(0));
+//        inotp2.setText(code.charAt(1));
+//        inotp3.setText(code.charAt(2));
+//        inotp4.setText(code.charAt(3));
+//        inotp5.setText(code.charAt(4));
+//        inotp6.setText(code.charAt(5));
+//    }
 
     private void resendVerificationCode(String mobileNumber,
-                                        PhoneAuthProvider.ForceResendingToken token){
+                                        PhoneAuthProvider.ForceResendingToken token) {
         PhoneAuthOptions options =
                 PhoneAuthOptions.newBuilder(mAuth)
                         .setPhoneNumber(mobileNumber)
@@ -266,22 +266,20 @@ public class Verify_otp extends AppCompatActivity {
         }
     }
 
-    private void timerOtp(){
-        new CountDownTimer(90000,1000){
+    private void timerOtp() {
+        new CountDownTimer(90000, 1000) {
             @Override
             public void onTick(long l) {
-                int min = (int) (l/1000)/60;
-                int sec = (int) (l/1000)-(min*60);
+                int min = (int) (l / 1000) / 60;
+                int sec = (int) (l / 1000) - (min * 60);
                 DecimalFormat formatter = new DecimalFormat("00");
-                resendotp.setText("Resend OTP ("+formatter.format(min)+":"+formatter.format(sec)+")");
+                resendotp.setText(String.format("Resend OTP (%s:%s)", formatter.format(min), formatter.format(sec)));
             }
 
             @Override
             public void onFinish() {
                 resendotp.setText("Resend OTP.");
-                resendotp.setOnClickListener(view -> {
-                    resendVerificationCode(VerificationId,mResendToken);
-                });
+                resendotp.setOnClickListener(view -> resendVerificationCode(VerificationId, mResendToken));
             }
         }.start();
     }

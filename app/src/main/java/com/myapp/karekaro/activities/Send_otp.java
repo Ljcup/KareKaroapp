@@ -21,10 +21,9 @@ import com.myapp.karekaro.R;
 import java.util.Objects;
 
 
-
 public class Send_otp extends AppCompatActivity {
 
-    FirebaseAuth mAuth =FirebaseAuth.getInstance();
+    FirebaseAuth mAuth = FirebaseAuth.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,21 +38,23 @@ public class Send_otp extends AppCompatActivity {
         btsendotp.setOnClickListener(view -> {
             String MobileNumber = Objects.requireNonNull(edttxt.getText()).toString().trim();
             RequestQueue queue = Volley.newRequestQueue(this);
-            if(MobileNumber.length() != 10){
-                Toast.makeText(this,"Enter valid Mobile Number",Toast.LENGTH_SHORT).show();
-            }else{
+            if (MobileNumber.length() != 10) {
+                Toast.makeText(this, "Enter valid Mobile Number", Toast.LENGTH_SHORT).show();
+            } else {
                 StringRequest stringRequest = new StringRequest(Request.Method.GET, URL + MobileNumber,
                         response -> {
                             GsonBuilder gsonBuilder = new GsonBuilder();
                             Gson gson = gsonBuilder.create();
-                            User user = gson.fromJson(response,User.class);
-                            if(Objects.equals(user.getMobilenumber(), MobileNumber)){
+                            User user = gson.fromJson(response, User.class);
+                            if (Objects.equals(user.getMobilenumber(), MobileNumber)) {
                                 Intent intent = new Intent(Send_otp.this, Verify_otp.class);
-                                intent.putExtra("MobileNumber",MobileNumber);
+                                intent.putExtra("MobileNumber", MobileNumber);
                                 startActivity(intent);
 
-                            }else{Toast.makeText(this,"Contact Admin",Toast.LENGTH_SHORT).show();}
-                            }, error -> Toast.makeText(this,"Mobile Number is not Verified.",Toast.LENGTH_SHORT).show());
+                            } else {
+                                Toast.makeText(this, "Contact Admin", Toast.LENGTH_SHORT).show();
+                            }
+                        }, error -> Toast.makeText(this, "Mobile Number is not Verified.", Toast.LENGTH_SHORT).show());
 
                 queue.add(stringRequest);
             }
@@ -64,8 +65,8 @@ public class Send_otp extends AppCompatActivity {
     @Override
     protected void onStart() {
         super.onStart();
-        if(mAuth.getCurrentUser() != null){
-            Intent intent = new Intent(Send_otp.this,Next.class);
+        if (mAuth.getCurrentUser() != null) {
+            Intent intent = new Intent(Send_otp.this, Next.class);
             startActivity(intent);
             finish();
         }

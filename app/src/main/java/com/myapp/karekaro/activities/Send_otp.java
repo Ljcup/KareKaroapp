@@ -5,13 +5,13 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.material.textfield.TextInputEditText;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
@@ -33,7 +33,7 @@ public class Send_otp extends AppCompatActivity {
 
         String URL = "http://192.168.1.5/KareKaro/mobilenumber.php?mo_number=";
 
-        TextInputEditText edttxt = findViewById(R.id.mobilenumber);
+        EditText edttxt = findViewById(R.id.mobilenumber);
         Button btsendotp = findViewById(R.id.btn_getotp);
 
         btsendotp.setOnClickListener(view -> {
